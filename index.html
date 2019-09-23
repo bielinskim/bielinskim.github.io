@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cwiczenia 03</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" style="width:100%;height:200px;">
+</header>
+
+<section>
+  <nav>   
+     <a style="background-color:#004280" href="index.html">Strona główna</a>
+     <a href="subpage.html">Galeria</a>
+     <a href="subpage2.html">Kalkulator</a>
+  </nav>
+  
+  <article>
+      
+ <p id="demo">Witaj! Chcesz dowiedziec sie czegos o Londynie?</p>
+
+<button id= "btn1" type="button" onclick='document.getElementById("demo").innerHTML = document.getElementById("demo3").innerHTML; 
+    document.getElementById("btn1").style.display = "none"; document.getElementById("btn2").style.display = "block"'>Tak!</button>     
+<p id="demo3" style="display:none">Londyn (ang. London) – stolica Anglii i Wielkiej Brytanii, największe miasto królestwa, położone w jego południowo-wschodniej części nad Tamizą.</p>
+<button id= "btn2" type="button" style="display:none" onclick="document.getElementById('demo2').style.display='block';; getElementById('btn2').style.display='none'">Kliknij zeby dowiedzieć się więcej!</button>
+<p id="demo2" style="display:none">Jest trzecim co do wielkości miastem Europy, po Moskwie i Stambule; jest także największym miastem Unii Europejskiej i jednym z większych miast świata zarówno w skali samego miasta, jak i całej aglomeracji. Liczba mieszkańców Londynu (w granicach tzw. Wielkiego Londynu) wynosi ok. 8,4 mln. (2013 r.) na obszarze 1572 km²; cała zaś aglomeracja londyńska, łącznie ze wszystkimi przyległymi miejscowościami w 2015 liczyła prawie 14 milionów mieszkańców[2][3] (obszar tzw. metropolia). Około 20% mieszkańców pochodzi z Azji, Afryki i Karaibów. </p>
+<p></p>
+<button onclick="document.getElementById('myImage').src='https://st.depositphotos.com/2442973/2707/i/950/depositphotos_27072121-stock-photo-bridge-over-the-river-thames.jpg'">Nowe zdjecie mostu nad Tamiza</button>
+
+<img id="myImage" src="http://plfoto.com/zdjecia_new2/2412813.jpg" style="width:400px">
+
+<button onclick="document.getElementById('myImage').src='http://plfoto.com/zdjecia_new2/2412813.jpg'">Stare zdjecie mostu nad Tamiza</button>
+<p></p>
+<button id='demo4' type="button" onclick="document.getElementById('myImage').style.width='800px'; document.getElementById('demo4').style.display='none'">Powieksz zdjecie!</button>
+  
+  </article>
+</section>
+
+</body>
+</html>
