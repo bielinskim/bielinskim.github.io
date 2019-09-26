@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+header {
+    background: url(b1.jpg) no-repeat 0px 0px;
+    min-height: 800px;
+    position: relative;
+}
+.header-overlay {
+   background: rgba(0, 0, 0, 0.55); 
+   min-height: 800px;
+}
+.nav-container {
+    min-height: 50px;
+}
+.header-content {
+    padding-top: 14em;
+}
+.header-content h2 {
+    font-family: 'Libre Franklin', sans-serif;
+    color: white;
+    font-size: 45px;
+    letter-spacing: 0.034em;
+    font-weight: 100;
+    text-align: center;
+}
+.header-media-icons {
+	margin: 0 auto;
+	width: 235px;
+	color: white;
+	letter-spacing: 1em;
+	padding-top: 30px;
+}
+.about-section {
+     min-height: 800px;
+     background-color: #1e1e1e;
+     
+}
+.about-container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+.about-container h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.about-container p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+    color: #CCC;
+}
+.portfolio-section {
+     background: url(b1.jpg) no-repeat 0px 0px;
+     min-height: 800px;
+     background-attachment: fixed;
+}
+.contact-section {
+     min-height: 800px;
+     background-color: #1e1e1e;
+}
