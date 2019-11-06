@@ -8,30 +8,97 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet"> 
         <script src="https://kit.fontawesome.com/f901db7b1e.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="style.css">
+        <script>
+  
+            $(document).ready(function(){
+            $(".button-link").hover(function(){
+               $(".link-text").remove();
+               $(".button-link").append("<i class='fab fa-github fa-1x link-icon' aria-hidden='true'></i>");
+             },
+             function(){
+               $(".link-icon").remove();
+               $(".button-link").append("<div class='link-text'>GitHub</div>");
+             }); 
+            });  
+</script>
     </head>
     <body>
-        <header><div class="header-overlay">
+        <header>
+       <div class="header-overlay">
         <div class="nav-container"></div>
         <div class="header-content">
         <h2>Witaj.<br> 
         Nazywam się Mateusz Bieliński.<br>
         </h2>
         <div class="header-media-icons">
-        <i class="fab fa-facebook-f fa-2x"></i>
-        <i class="fab fa-instagram fa-2x"></i>
-        <i class="fab fa-github fa-2x"></i>
-        <i class="fab fa-linkedin-in fa-2x"></i>
+        <i class="fab fa-facebook-f fa-2x" aria-hidden="true"></i>
+        <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
+        <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+        <i class="fab fa-linkedin-in fa-2x" aria-hidden="true"></i>
         </div>
         </div>       
         </div></header>
         <section class="about-section">
             <div class="about-container">
-                <h2>About</h2>
+                <h2 class="section-title">About</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation lamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
         </section>
-        <section class="portfolio-section"></section>
-        <section class="contact-section"></section>
-    </body>
-</html>
+        <section class="portfolio-section">
+              <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+              <a class='next' onclick='plusSlides(1)'>&#10095;</a>
+          <h2 class="section-title">Projects</h2>
+        <div class="project-container">
+        <div class='project-slide' style="background-color: #ff6f61;">
+            <div class="project-desc-container">
+            <h3 class="project-title">MyBudget<span class="project-title-underline"></span></h3>
+            <div class="project-desc-devicons">
+            <img src="icons/apache-original.svg">
+            <img src="icons/bootstrap-plain.svg">
+            <img src="icons/cplusplus-original.svg">
+            <img src="icons/java-original.svg">
+            <img src="icons/html5-original.svg">
+            <img src="icons/css3-original.svg">
+            <img src="icons/javascript-original.svg">
+            <img src="icons/php-original.svg">
+            </div>
+            <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation lamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+            <div class="project-img-border"><img src="images/mybudget.jpg"><img></div>
+            <a class="button-link" href='#Link'><div class="link-text">GitHub</div></a>
+        </div>
+         <div class='project-slide' style="background-color: #6B5B95;">Rabaty do 30%</div>
+         <div class='project-slide' style="background-color: #FA9A85;">Darmowa dostawa</div>
+             
+        </div>
+        </section>
+        <section class="contact-section"><div class="contact-section-overlay"></div></section>
+    
+  <script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("project-slide");
+
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  slides[slideIndex-1].style.display = "block";  
+}
+</script>
+
+</body></html>
