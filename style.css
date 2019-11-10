@@ -1,7 +1,11 @@
 * {
     box-sizing: border-box;
     margin: 0px;
+    margin-top: 0px !important;
     padding: 0px;
+}
+html {
+    scroll-behavior: smooth;
 }
 header {
     background: url(images/b1.jpg) no-repeat center center;
@@ -17,12 +21,70 @@ header {
    min-height: 800px;
 }
 .nav-container {
-    min-height: 50px;
+    position: fixed;
+    display: inline-block;
+    left: 50px;
+    top: 50px;
+    z-index: 1;
+}
+.nav-container-button {
+    cursor: pointer;
+    width: 40px;
+    height: 50px;
+    position: relative;
+}
+.nav-container-list {
+  display: none;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.55);
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.nav-container-list a {
+  font-family: 'Encode Sans Condensed', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.nav-container-list a:hover, .nav-container-list a:active {
+    color: #009688;
+}
+.show {}
+.nav-bar1, .nav-bar2, .nav-bar3 {
+  width: 50px;
+  height: 5px;
+  background-color: white;
+  margin: 10px 0;
+  transition: 0.4s;
+}
+.change .nav-bar1 {
+  -webkit-transform: rotate(-45deg) translate(-13px, 12px);
+  transform: rotate(-45deg) translate(-13px, 12px);
+  background-color: #009688;
+}
+
+.change .nav-bar2 {opacity: 0;}
+
+.change .nav-bar3 {
+  -webkit-transform: rotate(45deg) translate(-9px, -8px);
+  transform: rotate(45deg) translate(-9px, -8px);
+  background-color: #009688;
 }
 .header-content {
-    padding-top: 18em;
+   
 }
+.header-content-container {
+    position: relative;
+    top: 22em;
+}
+
 .header-content h2 {
+    display: none;
     font-family: 'Libre Franklin', sans-serif;
     color: white;
     font-size: 45px;
@@ -31,13 +93,24 @@ header {
     text-align: center;
 }
 .header-media-icons {
+    display: none;
     margin: 0 auto;
     width: 235px;
     color: white;
     letter-spacing: 1em;
     padding-top: 30px;
 }
+.header-media-icons i {
+     cursor: pointer;
+    -webkit-transition: 0.4s; 
+    transition: 0.4s;
+    
+}
+.header-media-icons i:hover {
+    color: #009688;
+}
 .section-title {
+    display: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 40px;
     width: 1200px;
@@ -66,12 +139,14 @@ header {
     padding: 100px 0;
 }
 .about-container h2 {
+    display: none;
     font-family: 'Montserrat', sans-serif;
     color: white;
     font-size: 40px;
     margin-bottom: 30px;
 }
 .about-container p {
+    display: none;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 30px;
@@ -89,7 +164,7 @@ header {
     width: 1200px;
     height: 710px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 50px !important;
 }
 .project-desc-container {
     height: 100%;
@@ -104,6 +179,8 @@ header {
     width: 200px;
     padding-left: 50px;
     padding-top: 30px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 .project-title-underline {
    width: 70px;
@@ -115,13 +192,15 @@ header {
     font-family: 'Encode Sans Condensed', sans-serif;
     margin: 0;
     color: #333;
-    font-size: 1em;
+    font-size: 0.95em;
     line-height: 1.8;
     letter-spacing: 1px;
     font-weight: 400;
     padding-left: 50px;
     padding-top: 30px;
     width: 500px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 .project-desc-devicons {
     padding-left: 50px;
@@ -132,20 +211,31 @@ header {
     height: 30px;
 }
 .button-link {
-    
+  font-family: 'Encode Sans Condensed', sans-serif;
+  position: relative;
+  left: 275px;
+  top: 475px;  
+  border: 2px solid #1e1e1e;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
 }
 .button-link:link, .button-link:visited {
-  background-color: #f44336;
-  color: white;
+  color: black;
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  width: 100px;
+  width: 200px;
+  height: 60px;
 }
 
 .button-link:hover, .button-link:active {
-  background-color: red;
+  background-color: #1e1e1e;
+  color: white;
+}
+.link-text {
+    padding: 4px 0px;
+    letter-spacing: 2px;
 }
 .project-img-border {
     position: relative;
@@ -155,7 +245,7 @@ header {
     top: 100px;
     right: 100px;
 }
-.project-img-border img {
+.thumbnail {
 	position: relative;
 	top: 25px;
 	left: 25px;
@@ -167,8 +257,11 @@ header {
 	-webkit-transition: all 500ms ease;
 	-ms-transition: all 500ms ease;
 	-o-transition: all 500ms ease;
+         cursor: pointer;
+
+.thumbnail:hover {opacity: 0.7;}
 }
-.modal {
+#portfolio-modal {
   display: none; 
   position: fixed; 
   z-index: 1; 
@@ -181,10 +274,9 @@ header {
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.9); 
 }
-.modal-image {
+#modal-image {
   margin: auto;
-  position: relative;
-  display: none;
+  display: block;
   max-height: 730px;
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
@@ -206,7 +298,7 @@ header {
   top: 15px;
   right: 35px;
   color: #f1f1f1;
-  font-size: 40px;
+  font-size: 80px;
   font-weight: bold;
   transition: 0.3s;
 }
@@ -222,17 +314,20 @@ header {
     height: 600px;
 }
 .prev, .next {
+  display: none;
   cursor: pointer;
   position: relative;
   top: 55%;
   width: auto;
-  padding: 16px;
+  padding: 32px;
   margin-top: -50px;
-  color: white;
+  color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
-  font-size: 20px;
+  font-size: 40px;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
 }
 .prev {
     float: left;
@@ -249,9 +344,46 @@ header {
     min-height: 960px;
     background-color: #1e1e1e;
     background-attachment: fixed;
+    color: white;
 }
 .contact-section-overlay {
    background: rgba(0, 0, 0, 0.55); 
    height: 100vh;
    min-height: 960px;
+}
+.contact-section-container {
+    padding-top: 100px;
+    height: 835px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 125px;
+    padding: 50px 10px;
+    border-top: 1px solid #CCC;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    line-height: 25px;
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+.footer ul {
+    list-style-type: none;
+    display: inline-block;
+}
+.footer ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+.footer ul li a {
+    text-decoration: none;
+    color: white;
+}
+.footer ul li a:hover {
+    color: #009688;
+}
+.footer p {
+    display: inline-block;
+    float: right;
 }

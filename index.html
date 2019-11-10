@@ -4,6 +4,7 @@
         <title>MySite</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin:200&display=swap">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet"> 
@@ -11,25 +12,103 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="style.css">
         <script>
-  
+            var slideFlag = false;
+            var slideIndex = 1;
             $(document).ready(function(){
-            $(".button-link").hover(function(){
+            $(".header-content-text01").fadeIn(2000);    
+            $(".header-content-text02").delay(2000).fadeIn(2000);
+            $(".header-media-icons").delay(4000).fadeIn(2000);
+            $(document).scroll(function() {
+            var y = $(this).scrollTop();
+             if (y > 800) {
+                 $("#about-section-title").fadeIn(2000);
+                 $(".about-container p").fadeIn(2000);
+             }
+             if (y > 1760) {
+                 $("#portfolio-section-title").fadeIn(2000);
+                 $(".prev").fadeIn(2000);
+                 $(".next").fadeIn(2000);
+                 if(!slideFlag) {
+                 showSlides(slideIndex);
+             }
+             }
+             if (y > 2720) {
+                 $("#contact-section-title").fadeIn(2000);
+             }    
+             });
+             
+        
+             $(".button-link").hover(function(){
                $(".link-text").remove();
-               $(".button-link").append("<i class='fab fa-github fa-1x link-icon' aria-hidden='true'></i>");
+               $(".button-link").append("<i class='fab fa-github fa-2x link-icon' aria-hidden='true'></i>").fadeIn(2000);
              },
              function(){
                $(".link-icon").remove();
-               $(".button-link").append("<div class='link-text'>GitHub</div>");
-             }); 
-            });  
-</script>
+               $(".button-link").append("<div class='link-text'>GitHub</div>").fadeIn(2000);
+             });
+             
+             var modal = document.getElementById("portfolio-modal");
+             var img = $(".thumbnail");
+             var modalImg = $("#modal-image");
+             $(".thumbnail").click(function(){
+                 modal.style.display = "block";
+                 var newSrc = this.src;
+                 modalImg.attr('src', newSrc);
+             });
+             $(".close-button").click(function() {
+                 modal.style.display = "none";
+             });
+            }); 
+            
+            //function navButton(x) {
+              // x.classList.toggle("change");
+           // }
+            function showList(x) {
+                x.classList.toggle("change");
+                $("#nav-list").slideToggle(1000); 
+            }
+
+            function plusSlides(n) {
+             showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+             showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+             var slides = document.getElementsByClassName("project-slide");
+
+             if (n > slides.length) {slideIndex = 1}    
+             if (n < 1) {slideIndex = slides.length}
+             for (var i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none"; 
+             }
+              $("#slide".concat(slideIndex)).fadeIn(2000);
+              slideFlag = true;
+            }  
+        </script>
     </head>
     <body>
-        <header>
-       <div class="header-overlay">
-        <div class="nav-container"></div>
+        <div class="nav-container">    
+             <div class="nav-container-button" onclick="showList(this)">
+               <div class="nav-bar1"></div>
+               <div class="nav-bar2"></div>
+               <div class="nav-bar3"></div>
+             </div>
+            <div id="nav-list" class="nav-container-list">
+                <a href="#home">Home</a>
+                <a href="#about">O mnie</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Kontakt</a>
+            </div>      
+        </div>
+        <header id="home">
+        <div class="header-overlay">
         <div class="header-content">
-        <h2>Witaj.<br> 
+        <div class="header-content-container">
+        <h2 class='header-content-text01'>Witaj.</h2><br> 
+        <h2 class='header-content-text02'>
         Nazywam się Mateusz Bieliński.<br>
         </h2>
         <div class="header-media-icons">
@@ -37,68 +116,89 @@
         <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
         <i class="fab fa-github fa-2x" aria-hidden="true"></i>
         <i class="fab fa-linkedin-in fa-2x" aria-hidden="true"></i>
-        </div>
-        </div>       
+        </div></div></div>       
         </div></header>
-        <section class="about-section">
+        <section id="about" class="about-section">
             <div class="about-container">
-                <h2 class="section-title">About</h2>
+                <h2 id="about-section-title" class="section-title">O mnie</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation lamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
         </section>
-        <section class="portfolio-section">
+        <section id='portfolio' class="portfolio-section">
               <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
               <a class='next' onclick='plusSlides(1)'>&#10095;</a>
-          <h2 class="section-title">Projects</h2>
+          <h2 id="portfolio-section-title" class="section-title">Projekty</h2>
         <div class="project-container">
-        <div class='project-slide' style="background-color: #ff6f61;">
+        <div id='slide1' class='project-slide'>
             <div class="project-desc-container">
             <h3 class="project-title">MyBudget<span class="project-title-underline"></span></h3>
-            <div class="project-desc-devicons">
-            <img src="icons/apache-original.svg">
-            <img src="icons/bootstrap-plain.svg">
-            <img src="icons/cplusplus-original.svg">
+            <div class="project-desc-devicons">           
             <img src="icons/java-original.svg">
+            </div>
+             <p class="project-desc">Celem aplikacji jest pomoc użytkownikom w organizacji ich domowego budżetu. Pozwala na dodawanie, edytowanie, oraz usuwanie wydatków / przychodów, które są wyświetlone w formie tabeli. Kolor wierszy zależy od typu wartości(przychód / wydatek). Aplikacja zawiera podsumowanie, które odświeża się, gdy dane ulegną zmianie i gdy filtry są aktywne. Użytkownik ma możliwość aktywowania wielu filtrów jednocześnie. Aplikacja sprawdza poprawność wprowadzanych danych. Dane są przechowywane w plikach .txt.<br>
+               Lista rzeczy, które chciałbym zrobić w przyszłości:<br>
+               •	 Przechowywanie danych w bazie danych<br>
+               •	 Tworzenie nowych profili<br>
+               •	 Nowe motywy<br>
+               •	 Wartości w BigDecimal<br>
+               • Angielska lokalizacja<br>
+               •	 Naprawa znanych błędów (sortowanie po dacie)<br>
+             </p>
+            </div>
+            <div class="project-img-border"><img class="thumbnail" src="images/mybudget.jpg"><img></div>
+            <a class="button-link" href='#Link'><div class="link-text">GitHub</div></a>
+        </div>
+        <div id='slide2' class='project-slide'>
+            <div class="project-desc-container">
+            <h3 class="project-title">WebShop<span class="project-title-underline"></span></h3>
+            <div class="project-desc-devicons">
             <img src="icons/html5-original.svg">
             <img src="icons/css3-original.svg">
             <img src="icons/javascript-original.svg">
             <img src="icons/php-original.svg">
+            <img src="icons/apache-original.svg">
+            <img src="icons/bootstrap-plain.svg">
             </div>
-            <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation lamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+             <p class="project-desc">Sklep internetowy.<br>Zaimplementowane funkcjonalności: <br>
+             • pobieranie i wyświetlanie produktów z bazy danych (MySQL)<br>
+             • wczytywanie informacji o produkcie i wyświetlenie na karcie produktu<br>
+             • pasek dostępności produktów<br>
+             • koszyk<br>
+             • składanie zamówień<br>
+             • zapis zamówień w bazie danych<br>
+             • logowanie / rejestracja<br>
+             </p>
             </div>
-            <div class="project-img-border"><img src="images/mybudget.jpg"><img></div>
-            <a class="button-link" href='#Link'><div class="link-text">GitHub</div></a>
+            <div class="project-img-border"><img class="thumbnail" src="images/webshop.jpg"><img></div>
+            <a class="button-link" href='#Link'><div class="link-text">GitHub</div></a>   
         </div>
-         <div class='project-slide' style="background-color: #6B5B95;">Rabaty do 30%</div>
-         <div class='project-slide' style="background-color: #FA9A85;">Darmowa dostawa</div>
-             
         </div>
+          <div id="portfolio-modal" class="modal">
+          <span class="close-button">&times;</span>
+          <img id="modal-image" class="modal-content">
+          </div>
         </section>
-        <section class="contact-section"><div class="contact-section-overlay"></div></section>
-    
-  <script>
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("project-slide");
-
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  slides[slideIndex-1].style.display = "block";  
-}
-</script>
-
-</body></html>
+        <section id="contact" class="contact-section"><div class="contact-section-overlay">
+        <div class="contact-section-container">
+        <h2 id="contact-section-title" class="section-title">Kontakt</h2>
+        </div>
+        <div class="footer">  
+            <ul>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#about">O mnie</a>
+                </li>
+                <li>
+                    <a href="#portfolio">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#contact">Kontakt</a>
+                </li> 
+            </ul>    
+        <p>© 2019 MySite. All rights reserved | Design by Mateusz Bieliński.</p>    
+        </div></div></section>
+        
+    </body>
+</html>
