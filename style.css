@@ -99,6 +99,7 @@ header {
     color: white;
     letter-spacing: 1em;
     padding-top: 30px;
+    text-decoration: none;
 }
 .header-media-icons i {
      cursor: pointer;
@@ -108,6 +109,9 @@ header {
 }
 .header-media-icons i:hover {
     color: #009688;
+}
+.header-media-icons a {
+    color: white;
 }
 .section-title {
     display: none;
@@ -134,9 +138,22 @@ header {
      background-color: #1e1e1e;
 }
 .about-container {
-    max-width: 1200px;
+    width: 1200px;
     margin: 0 auto;
     padding: 100px 0;
+}
+.about-desc {
+    width: 600px;
+    float: left;
+}
+.about-pic {
+    display: none;
+    width: 600px;
+    float: right;
+    padding-top: 50px;
+}
+.about-pic img {
+    width: 80%;
 }
 .about-container h2 {
     display: none;

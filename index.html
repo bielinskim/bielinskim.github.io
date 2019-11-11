@@ -23,6 +23,7 @@
              if (y > 800) {
                  $("#about-section-title").fadeIn(2000);
                  $(".about-container p").fadeIn(2000);
+                 $(".about-pic").fadeIn(2000);
              }
              if (y > 1760) {
                  $("#portfolio-section-title").fadeIn(2000);
@@ -60,9 +61,6 @@
              });
             }); 
             
-            //function navButton(x) {
-              // x.classList.toggle("change");
-           // }
             function showList(x) {
                 x.classList.toggle("change");
                 $("#nav-list").slideToggle(1000); 
@@ -109,19 +107,24 @@
         <div class="header-content-container">
         <h2 class='header-content-text01'>Witaj.</h2><br> 
         <h2 class='header-content-text02'>
-        Nazywam się Mateusz Bieliński.<br>
+        Zapraszam Cię do obejrzenia mojej strony.<br>
         </h2>
         <div class="header-media-icons">
-        <i class="fab fa-facebook-f fa-2x" aria-hidden="true"></i>
+        <a href="https://www.facebook.com/mateusz.bielinski.50" target="_blank"><i class="fab fa-facebook-f fa-2x" aria-hidden="true"></i></a>
         <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
-        <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+        <a href="https://github.com/bielinskim/" target="_blank"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a>
         <i class="fab fa-linkedin-in fa-2x" aria-hidden="true"></i>
         </div></div></div>       
         </div></header>
         <section id="about" class="about-section">
             <div class="about-container">
-                <h2 id="about-section-title" class="section-title">O mnie</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation lamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="about-desc">
+                  <h2 id="about-section-title" class="section-title">O mnie</h2>
+                  <p>Nazywam się Mateusz Bieliński. Mieszkam w Bielanach, niedaleko Siedlec. Jestem studentem 2 roku Informatyki na UPH w Siedlcach. Pracuję w Valmont Polska. Poza pracą znaczną część czasu poświęcam na programowanie, co pokrywa się z nauka na studiach. W wolnym czasie czytam książki, gram na komputerze. W obu przypadkach w szczególności lubię fantasy. Jestem ciekawy świata, w miarę możliwości chciałbym podróżować. Uwielbiam również wędrówki po Tatrach.</p>
+                </div>
+                <div class="about-pic">
+                <img src="images/mb_img.png"><img>   
+                </div>
             </div>
         </section>
         <section id='portfolio' class="portfolio-section">
@@ -146,7 +149,7 @@
              </p>
             </div>
             <div class="project-img-border"><img class="thumbnail" src="images/mybudget.jpg"><img></div>
-            <a class="button-link" href='#Link'><div class="link-text">GitHub</div></a>
+            <a class="button-link" href="https://github.com/bielinskim/MyBudget" target="_blank"><div class="link-text">GitHub</div></a>
         </div>
         <div id='slide2' class='project-slide'>
             <div class="project-desc-container">
@@ -170,7 +173,7 @@
              </p>
             </div>
             <div class="project-img-border"><img class="thumbnail" src="images/webshop.jpg"><img></div>
-            <a class="button-link" href='#Link'><div class="link-text">GitHub</div></a>   
+            <a class="button-link" href="https://github.com/bielinskim/WebShop" target="_blank">><div class="link-text">GitHub</div></a>   
         </div>
         </div>
           <div id="portfolio-modal" class="modal">
@@ -198,7 +201,6 @@
                 </li> 
             </ul>    
         <p>© 2019 MySite. All rights reserved | Design by Mateusz Bieliński.</p>    
-        </div></div></section>
-        
+        </div></div></section> 
     </body>
 </html>
